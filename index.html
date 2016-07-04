@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css\materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css\dropify.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <div class="navbar-fixed">
@@ -78,46 +79,13 @@
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <h5 class="center-align light">Upload <b>images</b> here</h5>
-
-          <p class="center-align light-blue-text"><b>Isn't that Cool ! </b></p>
+         <h5 class="center-align light">You can also upload <b>images</b> here</h5>
+           <input type="file" class="dropify" data-height="150" data-max-file-size="3M"  />
+          <p class="center-align light-blue-text"><b>Max. permitted size: 3 MB</b></p>
         </div>
       </div>
      </div>
   </div>
-       <!--<div class="row">
-        <div class="col s12 m3">
-          <div class="icon-block">
-            <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
-              <h5 class="center"><a href="input.html?rff" id="rff">Random<br>Forest</a></h5>
-            	<p class="light" align='center'>Ensemble training model<br>Dimensionality Insensitive.<br>This model operates by constructing a multitude of decision trees.</p>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="input.html?ann" id="ann"><i class="material-icons indigo-text ">group_work</i></a></h2>
-            <h5 class="center"><a href="input.html?ann"  id="ann">Neural <br>Networks</a></h5>
-             <p class="light" align='center'>High Data Abstraction !<br>Efficient DeepNets are excellent at Classification problems.</p>
-          </div>
-        </div>
-         <div class="col s12 m3">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="input.html?knn" id="knn"><i class="material-icons indigo-text ">call_split</i></a></h2>
-            <h5 class="center"><a href="input.html?knn"  id="knn">K Nearest <br>Neighbors</a></h5>
-           <p class="light" align='center'>Simple and Easy to train!<br> This model is one of best out-of-box ML Models out there.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m3">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><a href="input.html?svm"  id="svm"><i class="material-icons indigo-text">toll</i></a></h2>
-              <h5 class="center"><a href="input.html?svm" id="svm">Support Vector Machines</a></h5>
-        		<p class="light" align='center'>Considered ideal for Classification problems!<br>Highly dependent on Data Dimensionality</p>
-          </div>
-        </div>
-     </div>
-   </div>
- </div>-->
   <div class="parallax-container valign-wrapper">
     <div class="container">
 	     	<div class="row center">
@@ -132,13 +100,13 @@
       <div class="row">
         <div class="col l6 s12 offset-l8">
           <h5 class="white-text">Machine Learning for Bio Medical Imaging</h5>
-          <p class="grey-text text-lighten-4">Using Machine Learning models to solve Medical Classification problems</p>
+          <p class="grey-text text-lighten-4">Using Machine Learning models to solve problems in BioMedical Imaging</p>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="red-text text-lighten-3" href="#!">Shikhar Srivastava, @IITKGP Summer2016</a>
+      Made by <a class="red-text text-lighten-3" href="#!">Shikhar Srivastava</a> @IITKGP Summer2016
       </div>
     </div>
   </footer>
@@ -147,6 +115,7 @@
   <!--  Scripts-->
   <script src="js/jquery-2.2.2.min.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="js/dropify.js""></script>
   <script>
     $(document).ready(function() {
       $('.modal-trigger').leanModal({
@@ -161,6 +130,16 @@
             shift:0,
             padding:20,
             time_constant:100 });
+      var drEvent = $('.dropify').dropify({messages: {
+          'default': 'Drag and drop a file here or click',
+          'replace': 'Drag and drop or click to replace',
+          'remove':  'Remove',
+          'error':   'Ooops, something wrong appended.'
+      }
+    });
+    drEvent.on('dropify.error.fileSize', function(event, element){
+    alert('Filesize exceeded!');
+});
   });
   </script>
   <script>
