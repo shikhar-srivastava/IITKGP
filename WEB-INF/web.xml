@@ -24,6 +24,23 @@
         <param-name>upload.location</param-name>
         <param-value>C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/uploads/</param-value>
      </context-param>
+     <servlet>
+        <servlet-name>uploadedImages</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>100</load-on-startup>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>uploadedImages</servlet-name>
+        <url-pattern>/uploads/*</url-pattern>
+    </servlet-mapping>
    <!-- <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>-->

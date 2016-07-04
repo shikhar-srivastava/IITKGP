@@ -30,5 +30,5 @@ $(document).ready(function() {
        starting_top: '10%'
     });
   $('.parallax').parallax();
-  Materialize.toast("Welcome !",1000);
+  Materialize.toast("Welcome !",1000,'rounded');
 });
