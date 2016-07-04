@@ -66,16 +66,17 @@
       <h6 class="light" align="center"><br><br>Select an <b>Image</b> to begin: </h6>
 
         <div class="carousel" id="gallery">
-		    <!--<a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
-		    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
-		    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
-		    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
-		    <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
-	     </div>-->
-      </div>
+          <!-- The new rows will be appended here....-->
+          <!--Sample below:
+        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
+        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
+        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+        <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>-->
+	     </div>
+    </div>
     <div class="parallax"><img src="rsc/map.jpg" alt="Unsplashed background img 2"></div>
   </div>
-  </div>
+                   
 
   <div class="section z-depth-10">
     <div class="container">
@@ -140,27 +141,6 @@
           Materialize.toast("File size exceeded!",3000);
         });
      });
-
-    $(document).ready(function(){
-
-      var dir = "uploads/";
-      var fileExt = {};
-      fileExt[0]=".png";
-      fileExt[1]=".jpg";
-      fileExt[2]=".gif";
-    $.ajax({
-    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-          url: dir,
-            success: function (data) {
-                $(data).find('a:contains(" + fileExt[0] + "),a:contains(" + fileExt[1] + "),a:contains(" + fileExt[2] + ")').each(function () {
-                   var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-                    $('#gallery').append($('<a class="carousel-item" href="input.html?'+filename+'"><img src="'+dir+filename+'"></a>"'));
-
-                }); 
-              }
-          });
-      });
-
     $(document).ready(function() {
           $('.modal-trigger').leanModal({
            dismissible: true,
@@ -170,12 +150,38 @@
            starting_top: '10%'
         }); 
       $('.parallax').parallax();
-      $('.carousel').carousel({
-            dist:-30,
-            shift:0,
-            padding:20,
-            time_constant:100});
+     
   });
+  </script>
+  <script>
+  var strs="";
+  $(document).ready(function() {
+      var dir = "uploads/";
+      var fileExt = {};
+      fileExt[0]=".png";
+      fileExt[1]=".jpg";
+      fileExt[2]=".jpeg";
+    $.ajax({
+          url: dir,
+            success: function (data) {
+
+                $(data).find("a:contains(\"" + fileExt[0] + "\"),a:contains(\"" + fileExt[1] + "\"),a:contains(\"" + fileExt[2] + "\")").each(function () {
+                   var filename = this.href.replace(window.location.host, "").replace("http:///MachineLearningIITKGP/uploads/", "");
+                   strs=strs+"<a class=\"carousel-item\" href=\"#"+filename+"\"><img src=\""+dir+filename+"\"></a>";
+                   
+                });
+                document.cookie = "strs="+strs+"; expires=Thu, 01 Jan 2070 00:00:00 UTC"; 
+              }
+          });
+
+  });
+  $(document).ready(function(){
+            var append_out= getCookie('strs');
+            if(append_out.valueOf()==="".valueOf()){Materialize.toast("# No Images uploaded! ",3000);}
+            $("#gallery").append(append_out);
+           $('.carousel').carousel({dist:-30,shift:0,padding:20,time_constant:100});
+         
+        });
   </script>
   <script>
     !function(n,r){"function"==typeof define&&define.amd?define(r):"object"==typeof exports?module.exports=r():n.transformicons=r()}(this||window,function(){"use strict";var n={},r="tcon-transform",t={transform:["click"],revert:["click"]},e=function(n){return"string"==typeof n?Array.prototype.slice.call(document.querySelectorAll(n)):"undefined"==typeof n||n instanceof Array?n:[n]},o=function(n){return"string"==typeof n?n.toLowerCase().split(" "):n},f=function(n,r,f){var c=(f?"remove":"add")+"EventListener",u=e(n),s=u.length,a={};for(var l in t)a[l]=r&&r[l]?o(r[l]):t[l];for(;s--;)for(var d in a)for(var v=a[d].length;v--;)u[s][c](a[d][v],i)},i=function(r){n.toggle(r.currentTarget)};return n.add=function(r,t){return f(r,t),n},n.remove=function(r,t){return f(r,t,!0),n},n.transform=function(t){return e(t).forEach(function(n){n.classList.add(r)}),n},n.revert=function(t){return e(t).forEach(function(n){n.classList.remove(r)}),n},n.toggle=function(t){return e(t).forEach(function(t){n[t.classList.contains(r)?"revert":"transform"](t)}),n},n});
