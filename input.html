@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Machine Learning for Medical Data</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css\materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body background="rsc/lawn.jpg" onload="test();">
+  <div class="navbar-fixed">
+  <nav class="blue darken-1" role="navigation">
+    <div class="row">
+      <div class="nav-wrapper container col s12">
+      <div class="nav-wrapper container col offset-s1 s12">
+      <a id="logo-container" href="index.html" class="brand-logo"><i class="material-icons " style="font-size: 35px">polymer</i></a>
+      </div>
+       <div class="row offset-s1 col s12">
+       <div class="row offset-s1 col s12">
+          <h4 id="mTypeName"></h4>
+      </div>
+      </div>
+      </div>
+    </div>
+  </nav>
+  </div>  
+  <div class="container blue-text text-lighten-1">
+    <div class="section">
+      <form id="form1" action="executePage" method="get" onsubmit="open_popup(this)">
+        <input type="text" id="mType" name="mType" hidden/>
+        <div class="row hoverable">
+        <div class="card col s12 m12 hoverable">
+          <div class="card-content">
+          <!--<i class="material-icons small" style="margin-top:20px">input</i>-->
+          <h4 class="center light">Input to the Model</h4>
+            <div class="row">
+              <div class="input-field offset-s4 col s6">
+                <input autocomplete="off" type="radio" class="with-gap validate input-text" id="attr3" name="dType" value="3" required/>
+                <label for="attr3">3 Attributes</label>
+                <input autocomplete="off" type="radio" class="with-gap validate input-text" id="attr23" name="dType" value="23" required/>
+                <label for="attr23">23 Attributes</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s8 offset-s2">
+                 <i class="material-icons prefix">input</i>
+                 <input autocomplete="off" type="text" id="data" class="mini-form-text-input validate input-text" name="data" required/>
+                 <label for="data">Enter the comma-seperated Input here</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s3 offset-m9 offset-s6">
+              <input type="submit" class="btn waves-effect red" value="Submit"/>
+              </div>             
+            </div>
+          </div>
+        </div>
+        </div>
+      </form>  
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+     <div class="col s6 hoverable">
+       <div class="card small hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="rsc/ml.jpeg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Input Format: DataSet 1<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">DataSet 1<i class="material-icons right">close</i></span>
+          <p>This DataSet has 3 attributes,namely: <br>R (Red) , G (Green) , B(Blue) respectively and 3 classes</p>
+        </div>
+      </div>
+     </div>
+     <div class="col s6 hoverable">
+      <div class="card small hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="rsc/ml.jpeg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Input Format: DataSet 2<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal ">
+          <span class="card-title grey-text text-darken-4">DataSet 2<i class="material-icons right">close</i></span>
+          <p>This DataSet is the Erythrocytes characterization in Anaemia detection dataset with 23 Features and 6 classes</p>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+          
+  <br><br>
+
+
+  <!--Footer-->
+  <footer class="page-footer red darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12 offset-l8">
+          <h5 class="white-text">Machine Learning for Medical Data</h5>
+          <p class="grey-text text-lighten-4">Using Models trained on large datasets to predict the required output</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="red-text text-lighten-3" href="#!">Shikhar Srivastava, @IITKGP Summer2016</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="js/jquery-2.2.2.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script>
+  function open_popup(form) {
+      window.open('', 'formpopup', 'width=800,height=350,resizeable,scrollbars,status=0,titlebar=0');
+      form.target = 'formpopup';
+  }
+
+  $(document).ready(function() {
+        $('.modal-trigger').leanModal({
+         dismissible: true,
+         opacity: .5,
+         in_duration: 200,
+         out_duration: 200,
+         starting_top: '10%'
+      });
+    $('.parallax').parallax();
+
+    Materialize.toast(" Enter Input for the Model ",5000);
+  });
+  </script>
+  <script>
+    function test() {
+        var mType = window.location.toString();
+        mType = mType.substring(mType.indexOf('?')+1);   //+1 or +2 CHECK
+        document.getElementById('mType').value =mType;
+        var mTypeString;
+        switch(mType) {
+    case "rff":
+        mTypeString="Random Forest";
+        break;
+    case "ann":
+        mTypeString="Artifical Neural Network"
+        break;
+    case "knn":
+        mTypeString="K Nearest Neighbours"
+        break;
+    case "svm":
+        mTypeString="Support Vector Machines"
+        break;  
+                  }
+        document.getElementById('mTypeName').innerHTML = mTypeString;
+        };
+</script>
+  <script>
+    $(document).ready(function() {
+      $('.modal-trigger').leanModal({
+       dismissible: true,
+       opacity: .5,
+       in_duration: 200,
+       out_duration: 200,
+       starting_top: '10%'
+      });
+        
+    });
+    </script>
+  </body>
+</html>
+
+         
