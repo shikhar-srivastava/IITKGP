@@ -29,6 +29,5 @@ $(document).ready(function() {
        out_duration: 200,
        starting_top: '10%'
     });
-  $('.parallax').parallax();
   Materialize.toast("Welcome !",1000,'rounded');
 });

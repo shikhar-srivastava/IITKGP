@@ -65,24 +65,24 @@
     <div class="container">
       <h6 class="light" align="center"><br><br>Select an <b>Image</b> to begin: </h6>
 
-        <div class="carousel">
+        <div class="carousel" id="gallery">
 		    <!--<a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
 		    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
 		    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
 		    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
-		    <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>-->
-	    </div>
-    </div>
+		    <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+	     </div>-->
+      </div>
     <div class="parallax"><img src="rsc/map.jpg" alt="Unsplashed background img 2"></div>
   </div>
+  </div>
 
-  <div class="section z-depth-5">
+  <div class="section z-depth-10">
     <div class="container">
       <div class="row">
         <div class="col s12">
          <h5 class="center-align light">You can upload <b>images</b> here</h5>
-
-         <input type="file" name="file" id="file" class="dropify" data-height="150" data-max-file-size="3M"  form="form1" multiple/>
+          <input type="file" name="file" id="file" class="dropify" data-height="150" form="form1" data-max-file-size="3M"  multiple/>
          <form id="form1" action="getImages" method="post" enctype="multipart/form-data">
             <div class="input-field center-align ">
                 <input type="submit" class="btn waves-effect red" value="Submit"/>
@@ -125,47 +125,56 @@
   <!--  Scripts-->
   <script src="js/jquery-2.2.2.min.js"></script>
   <script src="js/materialize.js"></script>
-  <script src="js/dropify.js""></script>
   <script src="js/init.js"></script>
+  <script src="js/dropify.js"></script>
   <script>
+    $(document).ready(function(){
+       var drEvent = $('.dropify').dropify({messages: {
+            'default': 'Drag and drop a file here or click',
+            'replace':'Drag and drop or click to replace',
+            'remove':'Remove',
+            'error':'Ooops, something wrong appended.'
+          }
+        });
+        drEvent.on('dropify.error.fileSize', function(event, element){
+          Materialize.toast("File size exceeded!",3000);
+        });
+     });
+
+    $(document).ready(function(){
+
+      var dir = "uploads/";
+      var fileExt = {};
+      fileExt[0]=".png";
+      fileExt[1]=".jpg";
+      fileExt[2]=".gif";
+    $.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+          url: dir,
+            success: function (data) {
+                $(data).find('a:contains(" + fileExt[0] + "),a:contains(" + fileExt[1] + "),a:contains(" + fileExt[2] + ")').each(function () {
+                   var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+                    $('#gallery').append($('<a class="carousel-item" href="input.html?'+filename+'"><img src="'+dir+filename+'"></a>"'));
+
+                }); 
+              }
+          });
+      });
+
     $(document).ready(function() {
-      $('.modal-trigger').leanModal({
-       dismissible: true,
-       opacity: .5,
-       in_duration: 200,
-       out_duration: 200,
-       starting_top: '10%'
-    }); 
-    $('.parallax').parallax();
-     $('.carousel').carousel({dist:-30,
+          $('.modal-trigger').leanModal({
+           dismissible: true,
+           opacity: .5,
+           in_duration: 200,
+           out_duration: 200,
+           starting_top: '10%'
+        }); 
+      $('.parallax').parallax();
+      $('.carousel').carousel({
+            dist:-30,
             shift:0,
             padding:20,
-            time_constant:100 });
-      var drEvent = $('.dropify').dropify({messages: {
-          'default': 'Drag and drop a file here or click',
-          'replace': 'Drag and drop or click to replace',
-          'remove':  'Remove',
-          'error':   'Ooops, something wrong appended.'
-      }
-    });
-    drEvent.on('dropify.error.fileSize', function(event, element){
-    Materialize.toast("File size exceeded!",3000);
-});
-
-    var dir = "uploadas/";
-var fileextension = ".jpg";
-$.ajax({
-    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-    url: dir,
-    success: function (data) {
-        //Lsit all png file names in the page
-        $(data).find("a:contains(" + fileextension + ")").each(function () {
-            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-            $("body").append($("<img src=" + dir + filename + "></img>"));
-        });
-    }
-});
-
+            time_constant:100});
   });
   </script>
   <script>
