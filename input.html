@@ -4,101 +4,129 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Machine Learning for Medical Data</title>
-  <!-- CSS  -->
+  <meta name="theme-color" content="#5e42a6">
+  <title>ML for BMI</title>
+  <link rel="icon" type="icon/ico" href="rsc/icon.ico"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css\materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css\dropify.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body background="rsc/lawn.jpg" onload="test();">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ML FOR BMI: INPUT PAGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~Created Summer 2016: By: Shikhar Srivastava~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->   
+<body>
   <div class="navbar-fixed">
-  <nav class="blue darken-1" role="navigation">
+  <nav class="blue darken-3" role="navigation">
     <div class="row">
       <div class="nav-wrapper container col s12">
-      <div class="nav-wrapper container col offset-s1 s12">
+      <div class="nav-wrapper container col s12">
       <a id="logo-container" href="index.html" class="brand-logo"><i class="material-icons " style="font-size: 35px">polymer</i></a>
-      </div>
-       <div class="row offset-s1 col s12">
-       <div class="row offset-s1 col s12">
-          <h4 id="mTypeName"></h4>
-      </div>
       </div>
       </div>
     </div>
   </nav>
-  </div>  
-  <div class="container blue-text text-lighten-1">
-    <div class="section">
-      <form id="form1" action="executePage" method="get" onsubmit="open_popup(this)">
-        <input type="text" id="mType" name="mType" hidden/>
-        <div class="row hoverable">
-        <div class="card col s12 m12 hoverable">
-          <div class="card-content">
-          <!--<i class="material-icons small" style="margin-top:20px">input</i>-->
-          <h4 class="center light">Input to the Model</h4>
-            <div class="row">
-              <div class="input-field offset-s4 col s6">
-                <input autocomplete="off" type="radio" class="with-gap validate input-text" id="attr3" name="dType" value="3" required/>
-                <label for="attr3">3 Attributes</label>
-                <input autocomplete="off" type="radio" class="with-gap validate input-text" id="attr23" name="dType" value="23" required/>
-                <label for="attr23">23 Attributes</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s8 offset-s2">
-                 <i class="material-icons prefix">input</i>
-                 <input autocomplete="off" type="text" id="data" class="mini-form-text-input validate input-text" name="data" required/>
-                 <label for="data">Enter the comma-seperated Input here</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s3 offset-m9 offset-s6">
-              <input type="submit" class="btn waves-effect red" value="Submit"/>
-              </div>             
-            </div>
+  </div>
+  <div class="parallax-container valign-wrapper hero">
+    <div class="container">
+      <div class="section">
+          <div class="row center">
+            <h5 class="header col s12 light"><br><br>Image(s) selected: <br></h5>
+          </div>
+          <div class="row center">
+            <span class="tcon-indicator" aria-label="scroll" aria-hidden="true">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36">
+                <path class="a3" d="M0,0l15,16L30,0"></path>
+                <path class="a2" d="M0,10l15,16l15-16"></path>
+                <path class="a1" d="M0,20l15,16l15-16"></path>
+              </svg>
+            </span>
+         </div>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~SLider for Images Selected Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->   
+
+            <div class="slider fullscreen">
+                <ul class="slides" id="wow" name="wow">
+
+          <!-- New Rows will be appended  here as per script below-->       
+                  
+                </ul>
+           </div>
+
+        </div>
+      <div class="parallax"><img src="rsc/map.jpg" alt="rsc/lawn.jpg"></div>
+    </div>
+  </div>
+  <div class="section z-depth-5">
+    <div class="container">
+    <!-- <div class="row">
+    	<h6 class="light" align='center'>Select a model for Prediction: </h6>
+    	</div>-->
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12">
+          <h4 class="center-align light">We <b>learn</b> from your preferences. </h4>
+          <p class="center-align light-blue-text"><b>Isn't that Cool ! </b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="container">
+        <h5 class="header col s12 light-white-text center-align">Machine Learning for easier & efficient Automated diagnosis</h5>
+        <h5 class="header col s15 light-white-text center-align"><br>Select a model to begin</a></h5>
+    </div>
+    <div class="parallax"><img src="rsc/map.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~Models List Section Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
+  <div class="section z-depth-5">
+    <div class="container">
+     <div class="row">
+        <div class="col s12 m3">
+          <div class="icon-block">
+            <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+              <h5 class="center"><a href="input.html?rff" id="rff">Random<br>Forest</a></h5>
+            <p class="light" align='center'>Ensemble training model<br>Dimensionality Insensitive.<br>This model operates by constructing a multitude of decision trees.</p>
           </div>
         </div>
+        <div class="col s12 m3">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><a href="input.html?ann" id="ann"><i class="material-icons indigo-text ">group_work</i></a></h2>
+            <h5 class="center"><a href="input.html?ann"  id="ann">Neural <br>Networks</a></h5>
+             <p class="light" align='center'>High Data Abstraction !<br>Efficient DeepNets are excellent at Classification problems.</p>
+          </div>
         </div>
-      </form>  
+         <div class="col s12 m3">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><a href="input.html?knn" id="knn"><i class="material-icons indigo-text ">call_split</i></a></h2>
+            <h5 class="center"><a href="input.html?knn"  id="knn">K Nearest <br>Neighbors</a></h5>
+           <p class="light" align='center'>Simple and Easy to train!<br> This model is one of best out-of-box ML Models out there.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m3">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><a href="input.html?svm"  id="svm"><i class="material-icons indigo-text">toll</i></a></h2>
+              <h5 class="center"><a href="input.html?svm" id="svm">Support Vector Machines</a></h5>
+        <p class="light" align='center'>Considered ideal for Classification problems!<br>Highly dependent on Data Dimensionality</p>
+          </div>
+        </div>
+      </div> 
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-     <div class="col s6 hoverable">
-       <div class="card small hoverable">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="rsc/ml.jpeg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Input Format: DataSet 1<i class="material-icons right">more_vert</i></span>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">DataSet 1<i class="material-icons right">close</i></span>
-          <p>This DataSet has 3 attributes,namely: <br>R (Red) , G (Green) , B(Blue) respectively and 3 classes</p>
-        </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header center-align white-text col s12"><a id="login-btn" class="modal-trigger waves-effect white-text" data-target="login-modal" style="text-decoration: underline;">Sign in!</a></li><br><br>Let's get started !</h5>
       </div>
-     </div>
-     <div class="col s6 hoverable">
-      <div class="card small hoverable">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="rsc/ml.jpeg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Input Format: DataSet 2<i class="material-icons right">more_vert</i></span>
-        </div>
-        <div class="card-reveal ">
-          <span class="card-title grey-text text-darken-4">DataSet 2<i class="material-icons right">close</i></span>
-          <p>This DataSet is the Erythrocytes characterization in Anaemia detection dataset with 23 Features and 6 classes</p>
-        </div>
-      </div>
-     </div>
     </div>
+    <div class="parallax"><img src="rsc/map.jpg" alt="Unsplashed background img 3"></div>
   </div>
-          
-  <br><br>
 
 
-  <!--Footer-->
+  <!--~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <footer class="page-footer red darken-1">
     <div class="container">
       <div class="row">
@@ -116,51 +144,13 @@
   </footer>
 
 
-  <!--  Scripts-->
+
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Trailing Scripts here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <script src="js/jquery-2.2.2.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script>
-  function open_popup(form) {
-      window.open('', 'formpopup', 'width=800,height=350,resizeable,scrollbars,status=0,titlebar=0');
-      form.target = 'formpopup';
-  }
-
-  $(document).ready(function() {
-        $('.modal-trigger').leanModal({
-         dismissible: true,
-         opacity: .5,
-         in_duration: 200,
-         out_duration: 200,
-         starting_top: '10%'
-      });
-    $('.parallax').parallax();
-
-    Materialize.toast(" Enter Input for the Model ",5000);
-  });
-  </script>
-  <script>
-    function test() {
-        var mType = window.location.toString();
-        mType = mType.substring(mType.indexOf('?')+1);   //+1 or +2 CHECK
-        document.getElementById('mType').value =mType;
-        var mTypeString;
-        switch(mType) {
-    case "rff":
-        mTypeString="Random Forest";
-        break;
-    case "ann":
-        mTypeString="Artifical Neural Network"
-        break;
-    case "knn":
-        mTypeString="K Nearest Neighbours"
-        break;
-    case "svm":
-        mTypeString="Support Vector Machines"
-        break;  
-                  }
-        document.getElementById('mTypeName').innerHTML = mTypeString;
-        };
-</script>
+  <script src="js/materialize.js"></script>
+  <script src="js/coolstuff.js"></script>
   <script>
     $(document).ready(function() {
       $('.modal-trigger').leanModal({
@@ -169,11 +159,24 @@
        in_duration: 200,
        out_duration: 200,
        starting_top: '10%'
-      });
-        
     });
-    </script>
-  </body>
-</html>
+    $('.parallax').parallax();
+  });
 
-         
+    $(document).ready(function(){
+
+      var appendScript=getImageScript();
+      if(appendScript==="" ||appendScript===null)Materialize.toast("No Image Selected!!",12000);
+       else
+       {
+            $("#wow").append(appendScript);
+            $('.slider').slider({full_width: true});
+            Materialize.toast("View selected Image(s)",10000);
+      }
+    });
+
+  </script>
+  <script>
+    !function(n,r){"function"==typeof define&&define.amd?define(r):"object"==typeof exports?module.exports=r():n.transformicons=r()}(this||window,function(){"use strict";var n={},r="tcon-transform",t={transform:["click"],revert:["click"]},e=function(n){return"string"==typeof n?Array.prototype.slice.call(document.querySelectorAll(n)):"undefined"==typeof n||n instanceof Array?n:[n]},o=function(n){return"string"==typeof n?n.toLowerCase().split(" "):n},f=function(n,r,f){var c=(f?"remove":"add")+"EventListener",u=e(n),s=u.length,a={};for(var l in t)a[l]=r&&r[l]?o(r[l]):t[l];for(;s--;)for(var d in a)for(var v=a[d].length;v--;)u[s][c](a[d][v],i)},i=function(r){n.toggle(r.currentTarget)};return n.add=function(r,t){return f(r,t),n},n.remove=function(r,t){return f(r,t,!0),n},n.transform=function(t){return e(t).forEach(function(n){n.classList.add(r)}),n},n.revert=function(t){return e(t).forEach(function(n){n.classList.remove(r)}),n},n.toggle=function(t){return e(t).forEach(function(t){n[t.classList.contains(r)?"revert":"transform"](t)}),n},n});
+  </script>
+</html>
