@@ -22,7 +22,7 @@
     </servlet-mapping>
      <context-param>
         <param-name>upload.location</param-name>
-        <param-value>C:/apache-tomcat-8.0.33/webapps/MachineLearningIITKGP/uploads/</param-value>
+        <param-value>C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/uploads/</param-value>
      </context-param>
      <servlet>
         <servlet-name>uploadedImages</servlet-name>

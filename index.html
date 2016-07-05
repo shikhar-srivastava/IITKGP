@@ -167,16 +167,17 @@
 
                 $(data).find("a:contains(\"" + fileExt[0] + "\"),a:contains(\"" + fileExt[1] + "\"),a:contains(\"" + fileExt[2] + "\")").each(function () {
                    var filename = this.href.replace(window.location.host, "").replace("http:///MachineLearningIITKGP/uploads/", "");
-                   strs=strs+"<a class=\"carousel-item\" href=\"#"+filename+"\"><img src=\""+dir+filename+"\"></a>";
+                   strs=strs+"<a class=\"carousel-item\" href=\"input.html?"+filename+"\"><img src=\""+dir+filename+"\"></a>";
                    
                 });
-                document.cookie = "strs="+strs+"; expires=Thu, 01 Jan 2070 00:00:00 UTC"; 
+                document.cookie = "strs=nothing"+strs+"; expires=Thu, 01 Jan 2070 00:00:00 UTC"; 
               }
           });
 
   });
   $(document).ready(function(){
             var append_out= getCookie('strs');
+            document.cookie="strs=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
             if(append_out.valueOf()==="".valueOf()){Materialize.toast("# No Images uploaded! ",3000);}
             $("#gallery").append(append_out);
            $('.carousel').carousel({dist:-30,shift:0,padding:20,time_constant:100});
