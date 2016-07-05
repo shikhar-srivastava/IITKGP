@@ -72,7 +72,9 @@
       </div>
     </div>
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~Models List Section Below ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
-
+    <form id="form_main" action="executePage" method="get" onsubmit="open_popup(this)">
+    <input type="text" id="imgName" name="imgName" hidden/>
+    <input type="text" id="mType" name="mType" hidden/>
     <div class="container">
       <ul class="collapsible popout" data-collapsible="accordion">
         <li>
@@ -81,22 +83,22 @@
               <div class="row">
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
-                    <h5 class="center"><a href="input.html?rff" id="rff">Nearest Mean Classifier</a></h5>
+                  <h2 class="center light-blue-text" ><a id="nmc" name="nmc" class="model"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+                    <h5 class="center"><a id="nmc" name="nmc" class="model">Nearest Mean Classifier</a></h5>
                   <p class="light" align='center'> Instance based learning Algorithm. <br>Vectorizes higher dimensional data to infer labels.</p>
                 </div>
               </div>
                <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?knn" id="knn"><i class="material-icons indigo-text ">call_split</i></a></h2>
-                  <h5 class="center"><a href="input.html?knn"  id="knn">K Nearest Neighbors</a></h5>
+                  <h2 class="center light-blue-text"><a id="knn" name="knn" class="model"><i class="material-icons indigo-text ">call_split</i></a></h2>
+                  <h5 class="center"><a id="knn" name="knn" class="model">K Nearest Neighbors</a></h5>
                  <p class="light" align='center'>Simple and Easy to train!<br> This model is one of best out-of-box ML Models out there.</p>
                 </div>
               </div>
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?svm"  id="svm"><i class="material-icons indigo-text">toll</i></a></h2>
-                    <h5 class="center"><a href="input.html?svm" id="svm">Naive Bayes</a></h5>
+                  <h2 class="center light-blue-text"><a id="nvb" name="nvb" class="model"><i class="material-icons indigo-text">toll</i></a></h2>
+                    <h5 class="center"><a id="svm" name="nvb" class="model">Naive Bayes</a></h5>
               <p class="light" align='center'>Highly scalable models<br> that assume strong feature independence <br>Family of Bayesian probabilistic inference</p>
                 </div>
               </div>
@@ -110,22 +112,22 @@
             <div class="row">
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
-                    <h5 class="center"><a href="input.html?rff" id="rff">Convolutional <br>Neural Network</a></h5>
+                  <h2 class="center light-blue-text" ><a id="cnn" name="cnn" class="model"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+                    <h5 class="center"><a id="cnn" name="cnn" class="model">Convolutional <br>Neural Network</a></h5>
                   <p class="light" align='center'>Ensemble training model<br>Dimensionality Insensitive.</p>
                 </div>
               </div>
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?ann" id="ann"><i class="material-icons indigo-text ">group_work</i></a></h2>
-                  <h5 class="center"><a href="input.html?ann"  id="ann">MultiLayer Perceptron<br> Network</a></h5>
+                  <h2 class="center light-blue-text"><a name="mlp" id="mlp" class="model"><i class="material-icons indigo-text ">group_work</i></a></h2>
+                  <h5 class="center"><a name="mlp" id="mlp" class="model">MultiLayer Perceptron<br> Network</a></h5>
                    <p class="light" align='center'>High Data Abstraction !<br>Efficient DeepNets are excellent at Classification problems.</p>
                 </div>
               </div>
                <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?knn" id="knn"><i class="material-icons indigo-text ">call_split</i></a></h2>
-                  <h5 class="center"><a href="input.html?knn"  id="knn">AutoEncoders</a></h5>
+                  <h2 class="center light-blue-text"><a name="anc" id="anc" class="model"><i class="material-icons indigo-text ">call_split</i></a></h2>
+                  <h5 class="center"><a name="anc" id="anc" class="model">AutoEncoders</a></h5>
                  <p class="light" align='center'>Simple and Easy to train!<br> This model is one of best out-of-box ML Models out there.</p>
                 </div>
               </div>
@@ -139,22 +141,22 @@
             <div class="row">
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
-                    <h5 class="center"><a href="input.html?rff" id="rff">Linear<br>Support Vector Machine</a></h5>
+                  <h2 class="center light-blue-text" ><a name="lsvm" id="lsvm" class="model"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+                    <h5 class="center"><a name="lsvm" id="lsvm" class="model">Linear<br>Support Vector Machine</a></h5>
                   <p class="light" align='center'>Ensemble training model<br>Dimensionality Insensitive.</p>
                 </div>
               </div>
                <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?knn" id="knn"><i class="material-icons indigo-text ">call_split</i></a></h2>
-                  <h5 class="center"><a href="input.html?knn"  id="knn">Self Optimizing<br>SVM</a></h5>
+                  <h2 class="center light-blue-text"><a name="sosvm" id="sosvm" class="model"><i class="material-icons indigo-text ">call_split</i></a></h2>
+                  <h5 class="center"><a name="sosvm" id="sosvm" class="model">Self Optimizing<br>SVM</a></h5>
                  <p class="light" align='center'>Simple and Easy to train!<br> This model is one of best out-of-box ML Models out there.</p>
                 </div>
               </div>
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?svm"  id="svm"><i class="material-icons indigo-text">toll</i></a></h2>
-                    <h5 class="center"><a href="input.html?svm" id="svm">Radial Basis Function <br> SVM</a></h5>
+                  <h2 class="center light-blue-text"><a name="rbfsvm" id="rbfsvm" class="model"><i class="material-icons indigo-text">toll</i></a></h2>
+                    <h5 class="center"><a name="rbfsvm" id="rbfsvm" class="model">Radial Basis Function <br> SVM</a></h5>
               <p class="light" align='center'>Considered ideal for Classification problems!<br>Highly dependent on Data Dimensionality</p>
                 </div>
               </div>
@@ -169,15 +171,15 @@
             <div class="row">
               <div class="col s12 m6">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text" ><a href="input.html?rff" id="rff"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
-                    <h5 class="center"><a href="input.html?rff" id="rff">Random Forest</a></h5>
+                  <h2 class="center light-blue-text" ><a name="rff" id="rff" class="model"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+                    <h5 class="center"><a name="rff" id="rff" class="model">Random Forest</a></h5>
                   <p class="light" align='center'>Ensemble training model<br>Dimensionality Insensitive.</p>
                 </div>
               </div>
               <div class="col s12 m6">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text"><a href="input.html?svm"  id="svm"><i class="material-icons indigo-text">toll</i></a></h2>
-                    <h5 class="center"><a href="input.html?svm" id="svm">Random Tree</a></h5>
+                  <h2 class="center light-blue-text"><a name="rnt"  id="rnt" class="model"><i class="material-icons indigo-text">toll</i></a></h2>
+                    <h5 class="center"><a name="rnt"  id="rnt" class="model">Random Tree</a></h5>
               <p class="light" align='center'>Considered ideal for Classification problems!<br>Highly dependent on Data Dimensionality</p>
                 </div>
               </div>
@@ -188,12 +190,13 @@
       </ul>
     
     </div>
+    </form>
   </div>
 
   <div class="parallax-container valign-wrapper">
     <div class="container">
       <div class="row center">
-        <h5 class="header center-align white-text col s12"><a id="login-btn" class="modal-trigger waves-effect white-text" data-target="login-modal" style="text-decoration: underline;">Sign in!</a></li><br><br>Let's get started !</h5>
+        <h5 class="header center-align white-text col s12"><a id="login-btn" class="modal-trigger waves-effect white-text">Machine Learning<br><br>for<br><br> Bio-Medical Imaging & Informatics</a></li></h5>
       </div>
     </div>
     <div class="parallax"><img src="rsc/map.jpg" alt="Unsplashed background img 3"></div>
@@ -240,10 +243,7 @@
     });
   });
 
-
-
     $(document).ready(function(){
-     
 
       var appendScript=getImageScript();
       if(appendScript==="" ||appendScript===null)Materialize.toast("No Image Selected!!",12000);
@@ -253,6 +253,33 @@
             $('.slider').slider({full_width: true});
             Materialize.toast("View selected Image(s)",10000);
       }
+    });
+    $(document).ready(function(){
+
+      var img= window.location.toString();
+        var indexer= img.indexOf('?');
+        if(indexer!=-1)
+        {
+          img = img.substring(indexer+1);
+          document.getElementById('imgName')=img;
+        }
+
+      window.addEventListener("DOMContentLoaded", function () {
+
+        var form = document.getElementById("form_main");
+        var models = document.getElementsByClassName("model");
+          for(model in models){
+
+            models[model].addEventListener("click", function(){
+
+             document.getElementById('mType').value=this.id;
+             form.submit();
+            },false);
+          }
+
+
+      });
+
     });
 
   </script>
