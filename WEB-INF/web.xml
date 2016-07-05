@@ -25,11 +25,7 @@
     </servlet-mapping>
      <context-param>
         <param-name>upload.location</param-name>
-<<<<<<< HEAD
-        <param-value>C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/uploads/</param-value>
-=======
-        <param-value>C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/uploads/</param-value>  <!--This is a disgrace. Sadly. I'll change it sometime-->
->>>>>>> origin/master
+        <param-value>C:/apache-tomcat-8.0.33/webapps/MachineLearningIITKGP/uploads/</param-value>  <!--This is a disgrace. Sadly. I'll change it sometime-->
      </context-param>
      <servlet>
         <servlet-name>uploadedImages</servlet-name>
