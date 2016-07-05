@@ -38,7 +38,7 @@ public class ExecuteServlet extends HttpServlet{
             System.out.println("mType: "+mType);
             String imgName = request.getParameter("imgName");
             System.out.println("imgName: "+imgName);
-            String[] imgNames=imgName.split('+');
+            String[] imgNames=imgName.split("\\|\\|");
             System.out.println("Image(s) selected: ");
             for(String img: imgNames)
             {
@@ -53,6 +53,9 @@ public class ExecuteServlet extends HttpServlet{
                 inst[i++] = Double.parseDouble(str);
             if (i == (count)) System.out.println("Input Read Successfully: i: " + i);
             for(double d:inst)System.out.println(d);*/
+
+              response.sendRedirect(request.getContextPath()+"/input.html?"+imgName);
+
          }catch(Exception e)
        {
           e.printStackTrace();

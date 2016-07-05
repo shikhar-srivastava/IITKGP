@@ -49,7 +49,7 @@ function find_file(name) {
         var indexer= img.indexOf('?');
         if(indexer==-1)return null;
         img = img.substring(indexer+1);
-        var imgs=img.split('+'); 
+        var imgs=img.split('||'); 
         var appendStr="";
         for(var i=0;i<imgs.length;i++)
         {

@@ -38,7 +38,7 @@ public class getImagesServlet extends HttpServlet {
             }
             else type=".png";
             String newFileName= UUID.randomUUID().toString(); //~~~~~~~Generating Random string to (almost always as its psuedo-random) avoid invariable File Overwriting~~~~~~
-            newURL+=newFileName+type+"+";
+            newURL+=newFileName+type+"||";
               System.out.println("File name decided: "+newFileName+type);
             InputStream fileContent = filePart.getInputStream();
             File file = new File(uploads, newFileName+type);
@@ -48,7 +48,7 @@ public class getImagesServlet extends HttpServlet {
         	//System.out.println("After file writing..");
         }
 
-        newURL=newURL.substring(0,newURL.length()-1);
+        newURL=newURL.substring(0,newURL.length()-2);
         response.sendRedirect(request.getContextPath()+"/input.html?"+newURL);
        
        	//~~~~~~~~~~~~Redirects to input.html page with appended Image String~~~~~~~~~~~~~~~~~~~~
