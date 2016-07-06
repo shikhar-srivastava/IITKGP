@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 *.jar
 WEB-INF/web.xml
+*.dll
