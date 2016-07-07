@@ -28,11 +28,13 @@ public class ExecuteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
 
+            System.loadLibrary("opencv_java2413");
+
         try {
             response.setContentType("text/html");
             System.out.println("In ExecuteServlet");
 
-            System.loadLibrary("opencv_java2413");
+           // System.loadLibrary("opencv_java2413");
 
             String mType = request.getParameter("mType");
             System.out.println("mType: " + mType);
