@@ -26,15 +26,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ExecuteServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+  static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
 
-            System.loadLibrary("opencv_java2413");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
 
         try {
             response.setContentType("text/html");
             System.out.println("In ExecuteServlet");
-
-           // System.loadLibrary("opencv_java2413");
 
             String mType = request.getParameter("mType");
             System.out.println("mType: " + mType);
