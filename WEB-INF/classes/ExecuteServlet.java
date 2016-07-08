@@ -49,14 +49,16 @@ public class ExecuteServlet extends HttpServlet {
             for (String name : imgNames) {
 
 
-                pathname = "uploads/" + name;
+                pathname = "C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/uploads/" + name;
+                System.out.println("Path name: "+pathname);
 
                 Mat inputImg = Highgui.imread(pathname, Highgui.CV_LOAD_IMAGE_COLOR);
-                Mat thresholded = AdaptSegmentImg(inputImg);  // Adaptive Thresholding
-
-                threshFilename = "output/" + name.substring(0, name.indexOf('.')) + "_thresh" + name.substring(name.indexOf('.'));
+                System.out.println("Sample Pixel vals: "+inputImg.get(0,0)[0]);
+                // ~~~~~~~~~~~~~~~~~~~~~~Adaptive Thresholding~~~~~~~~~~~~~~~~~~~~~~
+                Mat thresholded = AdaptSegmentImg(inputImg);  
+                threshFilename = "C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/output/" + name.substring(0, name.indexOf('.')) + "_thresh" + name.substring(name.indexOf('.'));
                 Highgui.imwrite(threshFilename, thresholded);
-                outputFilename = "output/" + name.substring(0, name.indexOf('.')) + "_out" + name.substring(name.indexOf('.'));
+                outputFilename = "C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/output/" + name.substring(0, name.indexOf('.')) + "_out" + name.substring(name.indexOf('.'));
 
                 Mat outputImg = new Mat(inputImg.rows(), inputImg.cols(), inputImg.type());
 
@@ -87,7 +89,7 @@ public class ExecuteServlet extends HttpServlet {
 
                 } else {
 
-                    //Reading DeepLearning4j Models here
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Reading DeepLearning4j Models here~~~~~~~~~~~~~~~~~~~~~
 
                     MultiLayerConfiguration confFromJson = MultiLayerConfiguration.fromJson(FileUtils.readFileToString(new File("C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/models/"+mType+".json")));
                     DataInputStream dis = new DataInputStream(new FileInputStream("C:/apache-tomcat-8.0.33/webapps/MachineLearningIITKGP/models/"+mType+".bin"));
@@ -96,7 +98,8 @@ public class ExecuteServlet extends HttpServlet {
                     MultiLayerNetwork model = new MultiLayerNetwork(confFromJson);
                     model.init();
                     model.setParams(newParams);
-                    //Model recreated
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Model recreated~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
                     System.out.println("Model Re-created from stored .json and .bin files");
 
                     INDArray predicted;

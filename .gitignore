@@ -48,3 +48,4 @@ Temporary Items
 *.jar
 WEB-INF/web.xml
 *.dll
+*.exe
