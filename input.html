@@ -141,7 +141,7 @@
             <div class="row">
               <div class="col s12 m4">
                 <div class="icon-block">
-                  <h2 class="center light-blue-text" ><a href="#" name="lsvm" id="lsvm" class="model" onClick="submit_form(this.name)"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
+                  <h2 class="center light-blue-text" ><a href="#" name="svm" id="svm" class="model" onClick="submit_form(this.name)"><i class="material-icons indigo-text">settings_input_antenna</i></a></h2>
                     <h5 class="center"><a href="#" name="lsvm" id="lsvm" class="model" onClick="submit_form(this.name)">Linear<br>Support Vector Machine</a></h5>
                   <p class="light center">Ensemble training model<br>Dimensionality Insensitive.</p>
                 </div>
@@ -277,6 +277,7 @@
       var form = document.getElementById("form_main");
       var mType_var= document.getElementById("mType");
        mType_var.value=name;
+       
        form.submit();
 
     }
