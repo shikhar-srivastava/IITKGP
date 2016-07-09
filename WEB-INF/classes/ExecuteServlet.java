@@ -100,8 +100,9 @@ public class ExecuteServlet extends HttpServlet {
 
                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Reading DeepLearning4j Models here~~~~~~~~~~~~~~~~~~~~~
 
+                    System.out.println("Model selected is: "+mType);
                     MultiLayerConfiguration confFromJson = MultiLayerConfiguration.fromJson(FileUtils.readFileToString(new File("C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/models/"+mType+".json")));
-                    DataInputStream dis = new DataInputStream(new FileInputStream("C:/apache-tomcat-8.0.33/webapps/MachineLearningIITKGP/models/"+mType+".bin"));
+                    DataInputStream dis = new DataInputStream(new FileInputStream("C:/apache-tomcat-8.0.36/webapps/MachineLearningIITKGP/models/"+mType+".bin"));
                     INDArray newParams = Nd4j.read(dis);
                     dis.close();
                     MultiLayerNetwork model = new MultiLayerNetwork(confFromJson);

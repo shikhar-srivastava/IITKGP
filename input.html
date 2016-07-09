@@ -260,7 +260,7 @@
         var indexer= img.indexOf('?');
         if(indexer!=-1)
         {
-          img = img.substring(indexer+1);
+          img =img.substring(indexer+1);
           document.getElementById('imgName').value=img;
         }
   });
@@ -271,17 +271,29 @@
         var indexer= img.indexOf('?');
         if(indexer!=-1)
         {
-          img = img.substring(indexer+1);
+          img = removeLastHash(img.substring(indexer+1));
           document.getElementById('imgName').value=img;
         }
       var form = document.getElementById("form_main");
       var mType_var= document.getElementById("mType");
        mType_var.value=name;
-       
        form.submit();
 
     }
-      /*window.addEventListener("DOMContentLoaded", function () {
+
+  function removeLastHash (myUrl)
+  {
+      if (myUrl.charAt(myUrl.length-1) == '#')
+      {
+          myUrl = myUrl.substring(0, myUrl.length-1);
+
+      }
+
+      return myUrl;
+  }
+
+
+/*window.addEventListener("DOMContentLoaded", function () {
 
         /*document.getElementById("rff").addEventListener("click",function()
         {
