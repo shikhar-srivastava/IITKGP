@@ -42,22 +42,52 @@ function find_file(name) {
       return null;
   }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~Fetches Images from URL and creates a 'Slider' script for it as a string.~~~~~~~~*/
 
+ function removeLastHash (myUrl)
+  {
+      if (myUrl.charAt(myUrl.length-1) == '#')
+      {
+          myUrl = myUrl.substring(0, myUrl.length-1);
+
+      }
+
+      return myUrl;
+  }
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~Fetches Images from URL and creates a 'Slider' script for it as a string.~~~~~~~~*/
     function getImageScript() {
         var img = window.location.toString();
         var indexer= img.indexOf('?');
         if(indexer==-1)return null;
-        img = img.substring(indexer+1);
+        img = removeLastHash(img.substring(indexer+1));
         var imgs=img.split('||'); 
         var appendStr="";
         for(var i=0;i<imgs.length;i++)
         {
           //var fullname=find_file(imgs[i]);
-            appendStr+='<li><img src="uploads/'+imgs[i]+'"><div class="caption center-align"><h5 class="light white-text text-lighten-3 center" ><br><br><br><br>Scroll down to select<br><b>ML Model</b><br><br><br></h5><div class="row center"><span class="tcon-indicator" aria-label="scroll" aria-hidden="true"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36"><path class="a3" d="M0,0l15,16L30,0"></path> <path class="a2"   d="M0,10l15,16l15-16"></path><path class="a1" d="M0,20l15,16l15-16"></path></svg></span></div></div></li>';
+            appendStr+='<li><img src="uploads/'+imgs[i]+'"><div class="caption center-align"><h5 class="light black-text text-lighten-3 center" ><br><br><br><br>Scroll down to select<br><b>ML Model</b><br><br><br></h5><div class="row center"><span class="tcon-indicator" aria-label="scroll" aria-hidden="true"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36"><path class="a3" d="M0,0l15,16L30,0"></path> <path class="a2"   d="M0,10l15,16l15-16"></path><path class="a1" d="M0,20l15,16l15-16"></path></svg></span></div></div></li>';
         }
           return appendStr;
      }
 
+     function getLoadingScript()
+     {
+        var img = window.location.toString();
+        var indexer= img.indexOf('?');
+        if(indexer==-1)return null;
+        img = removeLastHash(img.substring(indexer+1));
+        var imgs=img.split('||'); 
+        var appendStr="";
+        for(var i=0;i<imgs.length;i++)
+        {
+            appendStr+='<li><img src="uploads/'+imgs[i]+'"><div class="caption center-align"><h5 class="light black-text text-lighten-3 center"><br><br><br><br>Scroll down to select<br><b>ML Model</b><br><br><br></h5><div class="row center"><span class="tcon-indicator" aria-label="scroll" aria-hidden="true"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tcon-svgchevron" viewBox="0 0 30 36"><path class="a3" d="M0,0l15,16L30,0"></path> <path class="a2"   d="M0,10l15,16l15-16"></path><path class="a1" d="M0,20l15,16l15-16"></path></svg></span></div></div></li>';
+        }
+          return appendStr;
 
+     }
      //~~~~~~~~~~~~~~~~Returns to Input.html~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

@@ -62,10 +62,10 @@ public class ExecuteServlet extends HttpServlet {
                 Mat thresholded = AdaptSegmentImg(inputImg);  
                   System.out.println("Thresholded Image Created");
 
-                threshFilename = "output/" + name.substring(0, name.indexOf('.')) + "_thresh" + name.substring(name.indexOf('.'));
+                threshFilename = "output/" + name.substring(0, name.indexOf('.')) + "_thresh"+ name.substring(name.indexOf('.'));
                 Highgui.imwrite(fullpath+threshFilename, thresholded);
                   System.out.println("Thresholded Image Saved. At: "+fullpath+threshFilename);
-                outputFilename = "output/" + name.substring(0, name.indexOf('.')) + "_out" + name.substring(name.indexOf('.'));
+                outputFilename = "output/" + name.substring(0, name.indexOf('.')) + "_out_"+mType+ name.substring(name.indexOf('.'));
 
                 Mat outputImg = new Mat(inputImg.rows(), inputImg.cols(), inputImg.type());
                 System.out.println("Creating new outputImg");
@@ -89,7 +89,7 @@ public class ExecuteServlet extends HttpServlet {
                                 int predicted = Integer.parseInt(model.classify(inst).toString());
                                 if (predicted == 1) {
                                     outputImg.put(i, j, new double[]{255, 0, 0});
-                                } else outputImg.put(i, j, new double[]{0, 255, 0});
+                                } else outputImg.put(i, j, new double[]{0, 0, 255});
                             } else outputImg.put(i, j, inputImg.get(i, j));
 
                         }
@@ -130,8 +130,8 @@ public class ExecuteServlet extends HttpServlet {
                                 }
                                 max_class++;
                                 if (max_class == 1) {
-                                    outputImg.put(i, j, new double[]{255, 0, 0});
-                                } else outputImg.put(i, j, new double[]{0, 255, 0});
+                                    outputImg.put(i, j, new double[]{0, 0, 255});
+                                } else outputImg.put(i, j, new double[]{255,0,0});
 
                             }
                             else outputImg.put(i, j, inputImg.get(i, j));
