@@ -83,7 +83,7 @@ function find_file(name) {
         var appendStr="";
         for(var i=0;i<imgs.length;i++)
         {
-            appendStr+='<li><img src="uploads/'+imgs[i]+'"><div class="caption center-align"><h5 class="light black-text text-lighten-3 center"><br><br><br><br>Scroll down to select<br><b>ML Model</b><br><br><br></h5><div class="row center"></div></div></li>';
+            appendStr+='<li><img src="uploads/'+imgs[i]+'"><div class="caption center-align"><h5 class="light black-text text-lighten-3 center"><br><br><br><br>Scroll down to select<br><b>ML Model</b><br><br><br></h5><div class="row center"><img src="rsc/loader.gif" width="30"></div></div></li>';
         }
           return appendStr;
 
