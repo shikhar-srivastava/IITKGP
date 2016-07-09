@@ -133,7 +133,7 @@
   //-----------------For Dropify plugin-------------------
     $(document).ready(function(){
 
-       var drEvent = $('.dropify').dropify({'messages': {
+       var drEvent = $('.dropify').dropify({messages: {
             'default': 'Drag and drop a file here or click',
             'replace':'Drag and drop or click to replace',
             'remove':'Remove',
@@ -158,10 +158,10 @@
       $('.parallax').parallax();
      
   });
-  </script>
-  <script>
 
-  //-----------------For fetching Images from Local Directory : /uploads------------------------
+  </script> 
+  <script>
+    //-----------------For fetching Images from Local Directory : /uploads------------------------
   var strs="";
   $(document).ready(function() {
       var dir = "uploads/";
