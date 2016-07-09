@@ -83,10 +83,11 @@ public class ExecuteServlet extends HttpServlet {
                 Highgui.imwrite(fullpath+threshFilename, thresholded);
                 System.out.println("Thresholded Image Saved. At: "+fullpath+threshFilename);
                 outputFilename = "output/" + name.substring(0, name.indexOf('.')) + "_out_"+mType+ name.substring(name.indexOf('.'));
-
                 Mat finalOutputImg = new Mat(2*inputImg.rows(), inputImg.cols(), inputImg.type());
                 System.out.println("Creating new outputImg");
                 Mat tempOutputImg= new Mat(inputImg.rows(),inputImg.cols(),inputImg.type());
+                Mat filler= new Mat(5, inputImg.cols(),inputImg.type());
+                Mat outFiller= new Mat(inputImg.rows()+5,inputImg.cols(),inputImg.type());
 
                 if (mType.equals("nmc") || mType.equals("knn") || mType.equals("nvb") || mType.equals("svm") || mType.equals("sosvm") || mType.equals("rbfsvm") || mType.equals("rff") || mType.equals("rnt"))
                 {
@@ -117,7 +118,9 @@ public class ExecuteServlet extends HttpServlet {
                     System.out.println("Output Image Created..");
                     //finalOutputImg.rowRange(0,inputImg.rows()-1).colRange(0,inputImg.cols()-1)=inputImg;
                     //finalOutputImg.rowRange(inputImg.rows(),2*inputImg.rows()-1).colRange(0,inputImg.cols()-1)=tempOutputImg;
-                    Core.vconcat(Arrays.asList(inputImg,tempOutputImg),finalOutputImg);
+                    
+                    Core.vconcat(Arrays.asList(inputImg,filler),outFiller);
+                    Core.vconcat(Arrays.asList(outFiller,tempOutputImg),finalOutputImg);
 
                     System.out.println("Mapping to Final Output");
 
@@ -166,9 +169,10 @@ public class ExecuteServlet extends HttpServlet {
                         }
                     }
                     System.out.println("Output Image Created..");
-                    //finalOutputImg.rowRange(0,inputImg.rows()-1).colRange(0,inputImg.cols()-1)=inputImg;
-                    //finalOutputImg.rowRange(inputImg.rows(),2*inputImg.rows()-1).colRange(0,inputImg.cols()-1)=tempOutputImg;
-                    Core.vconcat(Arrays.asList(inputImg,tempOutputImg),finalOutputImg);
+                   
+                    Core.vconcat(Arrays.asList(inputImg,filler),outFiller);
+                    Core.vconcat(Arrays.asList(outFiller,tempOutputImg),finalOutputImg);
+                    
                     System.out.println("Mapping to Final Output");
 
                 }
