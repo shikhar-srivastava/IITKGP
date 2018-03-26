@@ -14,9 +14,22 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+
+
 # =========================
 # Operating System Files
 # =========================
+
+# Windows OS
+
+*.apdisk
+*.cmake
+*.dll
+*.pdb
+*.jar
+*.rar
+*.exe
 
 # OSX
 # =========================
@@ -41,6 +54,4 @@ $RECYCLE.BIN/
 .AppleDesktop
 Network Trash Folder
 Temporary Items
-.apdisk
-*.cmake
-deeplearning4j-examples-0.4-rc0-SNAPSHOT-bin.jar
+
