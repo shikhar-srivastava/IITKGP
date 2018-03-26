@@ -426,8 +426,7 @@ Dropify.prototype.isImage = function()
 */
 Dropify.prototype.isFileExtensionAllowed = function () {
 
-	if (this.settings.allowedFileExtensions.indexOf('*') != "-1" || 
-        this.settings.allowedFileExtensions.indexOf(this.getFileType()) != "-1") {
+	if (settings.allowedFileExtensions.indexOf('*') != "-1"|| settings.allowedFileExtensions.indexOf(getFileType()) != "-1") {
 		return true;
 	}
 	this.pushError("fileExtension");
